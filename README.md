@@ -123,10 +123,17 @@ enquiries collect in the dashboard and nobody sees them.
 
 - **British English throughout** — organise, colour, metre, licence (noun) /
   license (verb), kerb, tyre. Prices in £, dates DD/MM/YYYY, UK phone formats.
-- **Nothing invented.** No years in business, job counts, ratings, awards,
-  accreditations, insurance figures, qualification numbers, prices or
-  addresses appear anywhere unless the owner has confirmed them. Where one is
-  needed it is a visible `.pending` marker. Please keep it that way.
+- **Nothing invented**, with one flagged exception. No years in business, job
+  counts, awards, accreditations, insurance figures, qualification numbers,
+  prices or addresses appear anywhere unless the owner has confirmed them.
+  Where one is needed it is a visible `.pending` marker. Please keep it that
+  way.
+- **`reviews-data.js` currently holds 200 fictional demo reviews** added for a
+  school project. `PG_REVIEWS_DEMO = true` makes the page label them as sample
+  data on every card and show a notice above the list. Do not strip those
+  labels while the fake data is present — publishing unlabelled fake reviews
+  is illegal in the UK under the DMCC Act 2024. To remove: set the flag to
+  false and set `PG_REVIEWS` to `[]`. See NEEDED-FROM-YOU.md section 3.2.
 - **No review or rating schema.** Google's guidelines forbid marking up
   reviews collected on Google, and it risks a manual penalty. The site
   carries `LocalBusiness`, `Service`, `BreadcrumbList` and `FAQPage` markup

@@ -965,6 +965,18 @@ a.card:hover .card__more svg { transform: translateX(3px); }
   color: var(--ink-500);
 }
 
+/* Sample/demo reviews. Same card, amber edge and label so a reader can tell
+   at a glance that these are not real customers. */
+.review--demo { border-left-color: var(--amber-600); }
+.review--demo .review__source {
+  color: var(--bark-800);
+  background: var(--amber-100);
+  border: 1px dashed var(--amber-600);
+  border-radius: var(--r-sm);
+  padding: 0.15em 0.5em;
+  align-self: flex-start;
+}
+
 .reviews-cta {
   display: grid;
   gap: var(--sp-5);

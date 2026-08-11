@@ -1,10 +1,15 @@
 # What I need from you before this goes live
 
 The website is built and works. What it does not have is anything I could not
-verify — no invented phone numbers, no made-up qualifications, no fake
-reviews, no "established 2009", no "from £X". Every one of those is left as a
-visibly marked placeholder instead, because a placeholder you can see is
-better than a plausible-looking lie that goes live and stays there.
+verify — no invented phone numbers, no made-up qualifications, no
+"established 2009", no "from £X". Every one of those is left as a visibly
+marked placeholder instead, because a placeholder you can see is better than a
+plausible-looking lie that goes live and stays there.
+
+**One exception, and it is important:** the reviews page currently holds 200
+fictional sample reviews added as demonstration data for a school project.
+They are labelled as samples on the page, and **section 3.2 explains how to
+remove them before the site is used for the real business.**
 
 Work down this list. Items in **Section 1 stop the site going live**;
 everything after that can follow on.
@@ -136,7 +141,34 @@ front page. A button that says "See our recent jobs on Facebook" never looks
 out of date. If you post several times a week and want the feed, say so and I
 will add it behind the cookie banner.
 
-### 3.2 Google reviews — read this bit
+### 3.2 The 200 sample reviews currently on the site — REMOVE BEFORE LAUNCH
+
+The reviews page is currently filled with **200 fictional reviews** added as
+demonstration data for a school project. They are not real customers. Nobody
+named on that page has used this business.
+
+While they are in place, the site says so plainly: a notice sits above the
+list and every card carries a "sample review" label. That is deliberate and it
+must not be quietly removed while the fake reviews stay.
+
+**Before this site is used for the real business, take them out:**
+
+1. Open `assets/js/reviews-data.js`
+2. Set `window.PG_REVIEWS_DEMO = false;`
+3. Replace the whole list with `window.PG_REVIEWS = [];`
+
+The page handles an empty list on its own — it falls back to the
+"read our reviews on Google" panel.
+
+**Why this is not optional.** Publishing fake consumer reviews is a banned
+practice under the Digital Markets, Competition and Consumers Act 2024. The
+CMA can act directly, with penalties of up to 10% of worldwide turnover, and
+it is separately a breach of the ASA's CAP Code. Labelled demo data on a
+school project is fine; the same data unlabelled on a trading website is
+against the law. If those reviews were to go live on the real domain with the
+sample labels stripped off, that is exactly the offence.
+
+### 3.3 Google reviews — read this bit
 
 You asked for Google reviews on the site. Here is the honest position.
 
@@ -183,7 +215,7 @@ is already built to take it — nothing gets rebuilt, we just point it at the
 API. My advice is to start with the buttons and only pay for the API if you
 find people are not clicking through.
 
-### 3.3 Connecting the site to your Google account
+### 3.4 Connecting the site to your Google account
 
 Three separate things — see `GOOGLE-SETUP.md` for the step-by-step.
 
@@ -239,6 +271,10 @@ So you know it is a decision, not an oversight:
 - No prices or "from £X"
 - No address
 - No "Blackburn's number one", "Lancashire's best" or "cheapest guaranteed"
+
+The one exception is the 200 sample reviews described in section 3.2, added as
+demonstration data for a school project. They are labelled as samples wherever
+they appear and must be removed before the site is used commercially.
 
 Every one of those is either unverified or the sort of claim that quietly
 undermines the honest content sitting next to it. Send me the real figures and
