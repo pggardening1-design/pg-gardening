@@ -1,0 +1,20 @@
+{
+  "_readme": [
+    "OPTIONAL. Photos work perfectly well without this file — delete these two",
+    "lines and it still loads. Use it when you want a specific caption or a",
+    "better description for screen readers on a particular photo.",
+    "",
+    "The key is the folder and filename exactly as it appears in this folder.",
+    "  alt     = describes the photo for someone who cannot see it",
+    "  caption = the words printed under the photo",
+    "  title   = the heading above a before/after pair (set it on either half)",
+    "",
+    "Example — delete the _example block below once you have real entries:"
+  ],
+
+  "_example/before-01.jpg": {
+    "alt": "An overgrown back garden with waist-high grass and brambles along the fence",
+    "caption": "Rishton — garden clearance, two years of growth",
+    "title": "Full garden clearance in Rishton"
+  }
+}

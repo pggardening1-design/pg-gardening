@@ -1,0 +1,6 @@
+# PG Gardening & Tree Surgeon
+User-agent: *
+Allow: /
+Disallow: /thank-you.html
+
+Sitemap: https://REPLACE-WITH-YOUR-DOMAIN/sitemap.xml

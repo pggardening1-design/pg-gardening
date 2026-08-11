@@ -1,0 +1,64 @@
+# Netlify configuration — PG Gardening & Tree Surgeon
+#
+# The site is plain static HTML: there is no framework and nothing to compile.
+# The one build step rebuilds the photo manifest, so dropping a new job photo
+# into assets/img/gallery/<service>/ and pushing is enough to put it on the
+# website. See PHOTOS.md.
+
+[build]
+  command = "node tools/scan-photos.mjs"
+  publish = "."
+
+[build.processing]
+  skip_processing = false
+
+[build.processing.html]
+  pretty_urls = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=(), interest-cohort=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+
+# Long cache on fingerprint-free static assets is safe here because images are
+# added rather than replaced. Drop max-age if you ever overwrite a filename.
+[[headers]]
+  for = "/assets/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "/assets/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/assets/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+# photo-manifest.js is regenerated on every deploy — never cache it hard.
+[[headers]]
+  for = "/assets/js/photo-manifest.js"
+  [headers.values]
+    Cache-Control = "public, max-age=300"
+
+[[redirects]]
+  from = "/services"
+  to = "/services/"
+  status = 301
+
+[[redirects]]
+  from = "/areas"
+  to = "/areas/"
+  status = 301
+
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
