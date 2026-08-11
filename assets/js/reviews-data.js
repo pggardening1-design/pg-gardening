@@ -28,10 +28,10 @@
    ##                                                                ##
    ####################################################################
 
-   While PG_REVIEWS_DEMO is true, every review card is labelled as sample
-   data on the page itself and a notice appears above the list. That is
-   deliberate: a marker that only exists in a code comment is invisible to
-   whoever is reading the website.
+   The marking is here in the source, as requested: PG_REVIEWS_DEMO below,
+   and demo: true on every record. Nothing is printed on the page itself.
+   Records marked demo also print no provenance line on their card, so the
+   site never states where they came from.
 
    Real reviews, when there are some, go in the same shape:
 

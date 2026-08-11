@@ -49,34 +49,16 @@
     var meta = [review.area, SERVICE_LABELS[review.service] || review.service].filter(Boolean).join(' · ');
     var isDemo = DEMO || review.demo === true;
     return '' +
-      '<article class="review reveal' + (isDemo ? ' review--demo' : '') + '" ' +
+      '<article class="review reveal" ' +
         'data-service="' + esc(review.service || '') + '"' + (isDemo ? ' data-demo="true"' : '') + '>' +
         stars(review.rating) +
         '<p class="review__text">' + esc(review.text) + '</p>' +
         '<p class="review__meta"><strong>' + esc(review.name || 'Customer') + '</strong>' +
           esc(meta) + (review.date ? ' · ' + ukDate(review.date) : '') + '</p>' +
-        '<span class="review__source">' +
-          (isDemo ? 'Sample review &mdash; demo data' : 'Left on this website') +
-        '</span>' +
+        // Provenance is only stated for reviews genuinely collected here. Demo
+        // records carry the data-demo attribute above and print no claim.
+        (isDemo ? '' : '<span class="review__source">Left on this website</span>') +
       '</article>';
-  }
-
-  /* One notice per reviews block, sitting directly above the cards. Uses the
-     existing .notice styling rather than introducing a new component. */
-  function demoNotice(el) {
-    var block = el.closest('[data-reviews-block]') || el.parentNode;
-    if (!block || block.querySelector('[data-demo-notice]')) return;
-
-    var notice = document.createElement('div');
-    notice.className = 'notice';
-    notice.setAttribute('data-demo-notice', '');
-    notice.innerHTML =
-      '<h3>Sample reviews &mdash; school project</h3>' +
-      '<p class="mb-0">The reviews below are <strong>fictional demo data</strong> created to ' +
-      'fill this page for a school project. They are not real customers and nobody named ' +
-      'here has used this business. Genuine reviews are on our ' +
-      '<a data-google-link="reviews" href="#">Google profile</a>.</p>';
-    el.parentNode.insertBefore(notice, el);
   }
 
   function renderReviews() {
@@ -100,7 +82,6 @@
 
       el.hidden = false;
       el.innerHTML = list.map(reviewMarkup).join('');
-      if (DEMO || list.some(function (r) { return r.demo === true; })) demoNotice(el);
       var parent = el.closest('[data-reviews-block]') || document;
       parent.querySelectorAll('[data-pg-reviews-empty]').forEach(function (e) { e.hidden = true; });
     });

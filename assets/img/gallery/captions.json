@@ -1,20 +1,72 @@
 {
-  "_readme": [
-    "OPTIONAL. Photos work perfectly well without this file — delete these two",
-    "lines and it still loads. Use it when you want a specific caption or a",
-    "better description for screen readers on a particular photo.",
-    "",
-    "The key is the folder and filename exactly as it appears in this folder.",
-    "  alt     = describes the photo for someone who cannot see it",
-    "  caption = the words printed under the photo",
-    "  title   = the heading above a before/after pair (set it on either half)",
-    "",
-    "Example — delete the _example block below once you have real entries:"
-  ],
-
-  "_example/before-01.jpg": {
-    "alt": "An overgrown back garden with waist-high grass and brambles along the fence",
-    "caption": "Rishton — garden clearance, two years of growth",
-    "title": "Full garden clearance in Rishton"
+  "tree-surgery/before-01.jpg": {
+    "title": "Overgrown conifer reduced",
+    "caption": "A conifer that had spread right over the railings, cut back hard and the debris cleared.",
+    "alt": "Overgrown conifer reduced — before PG Gardening & Tree Surgeon started work"
+  },
+  "tree-surgery/after-01.jpg": {
+    "title": "Overgrown conifer reduced",
+    "caption": "A conifer that had spread right over the railings, cut back hard and the debris cleared.",
+    "alt": "Overgrown conifer reduced — the same spot after the job was finished"
+  },
+  "hedge-cutting/before-01.jpg": {
+    "title": "Conifer reshaped",
+    "caption": "The same conifer in the border, brought back to a clean shape.",
+    "alt": "Conifer reshaped — before PG Gardening & Tree Surgeon started work"
+  },
+  "hedge-cutting/after-01.jpg": {
+    "title": "Conifer reshaped",
+    "caption": "The same conifer in the border, brought back to a clean shape.",
+    "alt": "Conifer reshaped — the same spot after the job was finished"
+  },
+  "hedge-cutting/before-02.jpg": {
+    "title": "Hard prune beside the conifers",
+    "caption": "Overgrown shrub taken right back so the conifers behind it have room again.",
+    "alt": "Hard prune beside the conifers — before PG Gardening & Tree Surgeon started work"
+  },
+  "hedge-cutting/after-02.jpg": {
+    "title": "Hard prune beside the conifers",
+    "caption": "Overgrown shrub taken right back so the conifers behind it have room again.",
+    "alt": "Hard prune beside the conifers — the same spot after the job was finished"
+  },
+  "garden-work/before-01.jpg": {
+    "title": "Full garden clearance",
+    "caption": "Years of growth cleared, the ground levelled and the path opened back up.",
+    "alt": "Full garden clearance — before PG Gardening & Tree Surgeon started work"
+  },
+  "garden-work/after-01.jpg": {
+    "title": "Full garden clearance",
+    "caption": "Years of growth cleared, the ground levelled and the path opened back up.",
+    "alt": "Full garden clearance — the same spot after the job was finished"
+  },
+  "garden-work/before-02.jpg": {
+    "title": "Overgrown plot cleared",
+    "caption": "Waist-high grass down the side of the garage, cleared back to bare ground.",
+    "alt": "Overgrown plot cleared — before PG Gardening & Tree Surgeon started work"
+  },
+  "garden-work/after-02.jpg": {
+    "title": "Overgrown plot cleared",
+    "caption": "Waist-high grass down the side of the garage, cleared back to bare ground.",
+    "alt": "Overgrown plot cleared — the same spot after the job was finished"
+  },
+  "power-washing/before-01.jpg": {
+    "title": "Flagged path washed",
+    "caption": "Years of algae off the flags between the house and the hedge.",
+    "alt": "Flagged path washed — before PG Gardening & Tree Surgeon started work"
+  },
+  "power-washing/after-01.jpg": {
+    "title": "Flagged path washed",
+    "caption": "Years of algae off the flags between the house and the hedge.",
+    "alt": "Flagged path washed — the same spot after the job was finished"
+  },
+  "power-washing/before-02.jpg": {
+    "title": "Patterned concrete patio",
+    "caption": "Moss and green film washed out of the pattern, back to the original colour.",
+    "alt": "Patterned concrete patio — before PG Gardening & Tree Surgeon started work"
+  },
+  "power-washing/after-02.jpg": {
+    "title": "Patterned concrete patio",
+    "caption": "Moss and green film washed out of the pattern, back to the original colour.",
+    "alt": "Patterned concrete patio — the same spot after the job was finished"
   }
 }
