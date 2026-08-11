@@ -7,9 +7,9 @@ marked placeholder instead, because a placeholder you can see is better than a
 plausible-looking lie that goes live and stays there.
 
 **One exception, and it is important:** the reviews page currently holds 200
-fictional sample reviews added as demonstration data for a school project.
-They are labelled as samples on the page, and **section 3.2 explains how to
-remove them before the site is used for the real business.**
+fictional reviews added as demonstration data for a school project. At your
+request they are no longer labelled as samples on the page, so **section 3.2
+explains how to remove them before the site is used for the real business.**
 
 Work down this list. Items in **Section 1 stop the site going live**;
 everything after that can follow on.
@@ -150,9 +150,10 @@ The reviews page is currently filled with **200 fictional reviews** added as
 demonstration data for a school project. They are not real customers. Nobody
 named on that page has used this business.
 
-While they are in place, the site says so plainly: a notice sits above the
-list and every card carries a "sample review" label. That is deliberate and it
-must not be quietly removed while the fake reviews stay.
+They are marked as demo data in the source — the header warning in
+`assets/js/reviews-data.js`, the `PG_REVIEWS_DEMO` flag and `demo: true` on
+every record — but nothing on the page itself now says so. A visitor reading
+the reviews page has no way to tell they are not real.
 
 **Before this site is used for the real business, take them out:**
 
@@ -168,8 +169,8 @@ practice under the Digital Markets, Competition and Consumers Act 2024. The
 CMA can act directly, with penalties of up to 10% of worldwide turnover, and
 it is separately a breach of the ASA's CAP Code. Labelled demo data on a
 school project is fine; the same data unlabelled on a trading website is
-against the law. If those reviews were to go live on the real domain with the
-sample labels stripped off, that is exactly the offence.
+against the law. As things stand the labels are off, so putting this site on
+the real domain with the dataset still in place is exactly the offence.
 
 ### 3.3 Google reviews — read this bit
 
