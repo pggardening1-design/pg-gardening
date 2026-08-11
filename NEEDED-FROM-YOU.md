@@ -18,20 +18,24 @@ everything after that can follow on.
 
 ## 1. Blockers — the site should not launch without these
 
-### 1.1 The two phone numbers
+### 1.1 The two phone numbers — DONE, labels still to come
 
-- **Phone 1:** ............................ Whose is it / what is it for?
-  (e.g. "Office", "Paul", "Main line") ............................
-- **Phone 2:** ............................ Whose / what for? ....................
+Both numbers are now live everywhere on the site — header, footer, contact
+page, thank-you page and the sticky mobile call bar — taken from the van in
+your photos:
 
-Right now every phone position on the site shows a yellow
-`Phone 1 — number needed` marker: the header, the footer, the contact page,
-the thank-you page and the sticky call bar at the bottom of every mobile
-screen. There are no dead `tel:` links and no placeholder digits that could
-ring a stranger.
+- **07443 356 651**
+- **07411 648 265**
 
-Once you send them, one command fills in all of it, including the `tel:` links
-and the business data search engines read:
+Every one is a working `tel:` link and both are in the business data search
+engines read. Tap them on a phone to check they dial.
+
+**Still needed: which is which.** They are unlabelled at the moment, and the
+mobile call bar simply reads "Call us" and "Second line". Tell me what each one
+is — a name, "office" and "mobile", "quotes" and "emergencies", whatever is
+true — and I will label them properly so people know who they are ringing.
+
+To change either number, or to add the labels:
 
 ```bash
 node tools/setup.mjs \
@@ -41,8 +45,7 @@ node tools/setup.mjs \
   --domain "https://www.yourdomain.co.uk"
 ```
 
-Tell me which number is which and I will label them properly rather than
-leaving two anonymous numbers for people to guess between.
+The `--label1` and `--label2` values are what appear beside each number.
 
 ### 1.2 Email address
 

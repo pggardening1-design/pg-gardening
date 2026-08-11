@@ -100,10 +100,12 @@ function inlinePhone(number, label) {
     `<strong>${esc(number)}</strong></a>`;
 }
 
-function barPhone(number, label) {
+function barPhone(number, label, fallback) {
   const tel = toTel(number);
+  // Without a label the two buttons would both read the same, so the second
+  // one falls back to "Second line" rather than repeating "Call us".
   return `<a href="tel:${esc(tel)}" aria-label="Call ${esc(label || number)}">${PHONE_ICON}` +
-    `<span>${esc(label || 'Call us')}</span><small>${esc(number)}</small></a>`;
+    `<span>${esc(label || fallback)}</span><small>${esc(number)}</small></a>`;
 }
 
 /* --------------------------------------------------------------- apply --- */
@@ -117,11 +119,11 @@ for (const file of files) {
 
   if (args.phone1) {
     text = replaceBlock(text, 'PHONE1', inlinePhone(args.phone1, args.label1));
-    text = replaceBlock(text, 'PHONE1BAR', barPhone(args.phone1, args.label1));
+    text = replaceBlock(text, 'PHONE1BAR', barPhone(args.phone1, args.label1, 'Call us'));
   }
   if (args.phone2) {
     text = replaceBlock(text, 'PHONE2', inlinePhone(args.phone2, args.label2));
-    text = replaceBlock(text, 'PHONE2BAR', barPhone(args.phone2, args.label2));
+    text = replaceBlock(text, 'PHONE2BAR', barPhone(args.phone2, args.label2, 'Second line'));
   }
   if (args.email) {
     text = replaceBlock(text, 'EMAIL',

@@ -37,8 +37,8 @@ window.PG_CONFIG = {
      Filled in by tools/set-contact.mjs. Do not hand-edit only this block:
      the phone numbers also appear in the page HTML and in the JSON-LD, and
      the script updates all of them together. */
-  phone1: { number: '', label: '' },
-  phone2: { number: '', label: '' },
+  phone1: { number: '07443 356 651', label: '' },
+  phone2: { number: '07411 648 265', label: '' },
   email: '',
   domain: ''
 };
