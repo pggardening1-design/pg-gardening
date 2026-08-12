@@ -14,6 +14,12 @@ explains how to remove them before the site is used for the real business.**
 Work down this list. Items in **Section 1 stop the site going live**;
 everything after that can follow on.
 
+**A lot of this you can now do yourself.** There is an admin panel at
+`/admin` — reviews to approve, photos, before/after sliders, and the on/off
+switches for Bark, MyBuilder and the rest. It needs two switches flicking in
+the Netlify dashboard first, which takes about five minutes and only has to be
+done once. `ADMIN.md` walks through it.
+
 ---
 
 ## 1. Blockers — the site should not launch without these
@@ -137,10 +143,19 @@ sent, which had a grey background baked into it and would have sat awkwardly on
 the pages. Your original file is kept at `assets/img/brand/guarantee-supplied.png`
 if you would rather use it.
 
-### 2.5 Memberships
+### 2.5 Memberships and trade directory listings
 
 Only if genuinely held and current — Arboricultural Association, Checkatrade,
 TrustMark, Which? Trusted Traders, etc.: ............................
+
+You do not need to tell me these. They are yours to switch on and off yourself
+in the admin panel, under **Settings → Links & listings**. Thirteen of the
+usual UK ones are already listed there — Bark, MyBuilder, Checkatrade,
+TrustATrader, Rated People, Which? Trusted Traders, TrustMark, Trustpilot,
+Yell, FreeIndex, Nextdoor, Local Heroes and the Arboricultural Association —
+each switched off with an empty link. Paste your profile link in, switch it on,
+publish, and it appears on the site. Anything switched off is not rendered at
+all, so there are never any dead links. See `ADMIN.md`.
 
 ### 2.6 Payment methods
 
@@ -190,19 +205,23 @@ The reviews page is currently filled with **200 fictional reviews** added as
 demonstration data for a school project. They are not real customers. Nobody
 named on that page has used this business.
 
-They are marked as demo data in the source — the header warning in
-`assets/js/reviews-data.js`, the `PG_REVIEWS_DEMO` flag and `demo: true` on
+They are marked as demo data in the source — the warning at the top of
+`content/demo-reviews.json`, the `PG_REVIEWS_DEMO` flag and `demo: true` on
 every record — but nothing on the page itself now says so. A visitor reading
 the reviews page has no way to tell they are not real.
 
-**Before this site is used for the real business, take them out:**
+**Before this site is used for the real business, take them out.** It is a
+one-word change:
 
-1. Open `assets/js/reviews-data.js`
-2. Set `window.PG_REVIEWS_DEMO = false;`
-3. Replace the whole list with `window.PG_REVIEWS = [];`
+1. Open `content/demo-reviews.json`
+2. Change `"enabled": true` to `"enabled": false`
+3. Commit and push — or, if you would rather not touch files at all, tell me
+   and I will do it
 
-The page handles an empty list on its own — it falls back to the
-"read our reviews on Google" panel.
+All 200 disappear from the site in one go, and the file stays in the
+repository so the school project still has them. The page handles an empty
+list on its own — it falls back to the "read our reviews on Google" panel,
+and to any real reviews you have approved in the admin panel by then.
 
 **Why this is not optional.** Publishing fake consumer reviews is a banned
 practice under the Digital Markets, Competition and Consumers Act 2024. The

@@ -1,13 +1,15 @@
 # Netlify configuration — PG Gardening & Tree Surgeon
 #
 # The site is plain static HTML: there is no framework and nothing to compile.
-# The one build step rebuilds the photo manifest, so dropping a new job photo
-# into assets/img/gallery/<service>/ and pushing is enough to put it on the
-# website. See PHOTOS.md.
+# The one build step turns everything editable — settings, reviews, photos and
+# before/after pairs — into the small data files the pages read. Saving anything
+# in the admin panel at /admin commits to this repository, which starts a
+# deploy, which runs this. See ADMIN.md and PHOTOS.md.
 
 [build]
-  command = "node tools/scan-photos.mjs"
+  command = "node tools/build-content.mjs"
   publish = "."
+  functions = "netlify/functions"
 
 [build.processing]
   skip_processing = false

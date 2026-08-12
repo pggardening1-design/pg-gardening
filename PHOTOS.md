@@ -1,7 +1,16 @@
 # Adding photos
 
-You do not need to touch any code. Drop the picture into the right folder with
-the right name and it appears on the website.
+There are two ways, and they both end up in the same place.
+
+**The easy one:** log in to the admin panel at `/admin` and use **Photos** or
+**Before &amp; after pairs**. Upload from your phone, fill in the boxes, press
+Publish. Nothing else to do. See [ADMIN.md](ADMIN.md).
+
+**The bulk one:** if you have forty photos to add at once, dropping the files
+straight into the folders below is far quicker than doing them one at a time.
+That is what the rest of this page is about. You do not need to touch any code
+— drop the picture into the right folder with the right name and it appears on
+the website.
 
 ---
 
@@ -120,11 +129,11 @@ or two.
 **If you work on the files locally:** commit and push as usual.
 
 Either way the scan runs automatically on deploy — that is what
-`node tools/scan-photos.mjs` in `netlify.toml` is doing. You never run it by
+`node tools/build-content.mjs` in `netlify.toml` is doing. You never run it by
 hand unless you want to preview locally:
 
 ```bash
-node tools/scan-photos.mjs   # rebuilds assets/js/photo-manifest.js
+node tools/build-content.mjs   # rebuilds assets/js/photo-manifest.js
 ```
 
 It prints what it found and warns about any unmatched before/after:

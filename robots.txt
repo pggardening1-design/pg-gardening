@@ -2,5 +2,6 @@
 User-agent: *
 Allow: /
 Disallow: /thank-you.html
+Disallow: /admin/
 
 Sitemap: https://REPLACE-WITH-YOUR-DOMAIN/sitemap.xml

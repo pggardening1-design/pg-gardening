@@ -55,22 +55,36 @@ assets/css/styles.css   All styling
 assets/js/site.js       Navigation, reveals, sliders, lightbox, consent
 assets/js/media.js      Renders photos from the manifest
 assets/js/reviews.js    Renders reviews, wires up Google and Facebook links
-assets/js/config.js     ← the file to edit: links and tracking IDs
-assets/js/reviews-data.js   Reviews left on our own site
+assets/js/config.js     Auto-generated — do not edit
+assets/js/reviews-data.js   Auto-generated — do not edit
 assets/js/photo-manifest.js Auto-generated — do not edit
 assets/img/gallery/     Job photos go here (see PHOTOS.md)
 
-tools/scan-photos.mjs   Rebuilds the photo manifest (runs on deploy)
+admin/                  The admin panel served at /admin (see ADMIN.md)
+content/                Everything the admin panel edits, as plain files
+netlify/functions/      Turns a submitted review into a pending file
+
+tools/build-content.mjs Builds the three data files above (runs on deploy)
 tools/setup.mjs         Writes real contact details into the site
 ```
 
-### The two files you will actually edit
+### Where the content lives
 
-- **`assets/js/config.js`** — Facebook URLs, Google Business Profile links,
-  GA4 measurement ID. Anything left empty is hidden on the site rather than
-  shown as a dead link.
-- **`assets/js/reviews-data.js`** — reviews left with you directly. Read the
-  notes at the top: Google reviews must not be copied in here.
+Nothing is edited in `assets/js/` any more — those three files are generated.
+The originals are plain files under `content/`, and the admin panel at
+`/admin` is a friendly front end onto them:
+
+- **`content/settings.json`** — Facebook URLs, Google Business Profile links,
+  GA4 measurement ID, and the trade directory listings with an on/off switch
+  each. Anything switched off, or left empty, is not rendered on the site at
+  all rather than shown as a dead link.
+- **`content/reviews/*.json`** — one file per review left with you directly.
+  A review appears on the site only once `approved` is `true`. Google reviews
+  must not be copied in here.
+- **`content/pairs/*.json`** and **`content/photos/*.json`** — before/after
+  sliders and standalone photos added through the panel.
+
+Run `node tools/build-content.mjs` after editing any of them by hand.
 
 ---
 
@@ -86,10 +100,10 @@ npx serve .          # then open http://localhost:3000
 python3 -m http.server 8000
 ```
 
-To preview photos before pushing:
+To preview content changes before pushing:
 
 ```bash
-node tools/scan-photos.mjs
+node tools/build-content.mjs
 ```
 
 ---
@@ -102,11 +116,12 @@ rebuilds.
 `netlify.toml` sets one build command:
 
 ```
-node tools/scan-photos.mjs
+node tools/build-content.mjs
 ```
 
-That regenerates the photo manifest, which is what makes "drop a photo in the
-folder and it goes live" true. There is no other build step.
+That regenerates `config.js`, `reviews-data.js` and `photo-manifest.js` from
+`content/` and the gallery folders, which is what makes "save it in the admin
+panel and it goes live" true. There is no other build step.
 
 ### Forms
 

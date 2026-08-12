@@ -1,0 +1,225 @@
+# Decap CMS configuration — the admin panel at /admin
+#
+# Everything edited here is committed straight back to this repository, which
+# makes Netlify rebuild the site. That means there is no database to lose, every
+# change is version-controlled, and you can undo anything from the commit
+# history.
+#
+# Before it will let anyone in, two switches have to be turned on once in the
+# Netlify dashboard. See ADMIN.md.
+
+backend:
+  name: git-gateway
+  branch: claude/photo-uploads-reviews-pages-rcfpjb
+  commit_messages:
+    create: 'Admin: add {{collection}} "{{slug}}"'
+    update: 'Admin: update {{collection}} "{{slug}}"'
+    delete: 'Admin: delete {{collection}} "{{slug}}"'
+    uploadMedia: 'Admin: upload {{path}}'
+    deleteMedia: 'Admin: delete {{path}}'
+
+# Where uploaded photos land, and how the site refers to them
+media_folder: assets/img/uploads
+public_folder: /assets/img/uploads
+
+# Saving publishes straight away. There is no draft stage to forget about —
+# the on/off switches inside each item do that job instead.
+publish_mode: simple
+
+locale: en
+
+collections:
+  # ---------------------------------------------------------------- reviews
+  - name: reviews
+    label: Reviews
+    label_singular: Review
+    folder: content/reviews
+    create: true
+    identifier_field: name
+    slug: '{{year}}-{{month}}-{{day}}-{{fields.name}}'
+    summary: '{{fields.name}} · {{fields.area}} · shown on the website: {{fields.approved}}'
+    sortable_fields: ['date', 'name', 'approved']
+    extension: json
+    format: json
+    view_filters:
+      - label: Waiting for approval
+        field: approved
+        pattern: false
+      - label: Approved and live
+        field: approved
+        pattern: true
+    fields:
+      - label: 'Show this review on the website'
+        name: approved
+        widget: boolean
+        default: false
+        hint: 'Off until you tick it. Nothing a customer submits appears on the site until this is on.'
+      - label: Name
+        name: name
+        widget: string
+        hint: 'First name and surname initial is plenty, e.g. Sarah T.'
+      - label: Town or village
+        name: area
+        widget: string
+        required: false
+      - label: Which job was it
+        name: service
+        widget: select
+        required: false
+        options:
+          - { label: Tree surgery, value: tree-surgery }
+          - { label: Hedge cutting, value: hedge-cutting }
+          - { label: Garden work, value: garden-work }
+          - { label: Power washing, value: power-washing }
+      - label: Rating out of 5
+        name: rating
+        widget: number
+        value_type: int
+        min: 1
+        max: 5
+        default: 5
+      - label: Date
+        name: date
+        widget: date
+        format: 'YYYY-MM-DD'
+      - label: What they wrote
+        name: text
+        widget: text
+        hint: 'Publish it as written. Do not tidy up a customer’s words for them.'
+      - label: 'Customer gave permission to publish'
+        name: consent
+        widget: boolean
+        default: true
+        hint: 'Leave off if you are not sure. A review with this off is never shown.'
+      - label: Private notes
+        name: notes
+        widget: text
+        required: false
+        hint: 'Never shown on the website. For your own reference.'
+
+  # -------------------------------------------------------- before / after
+  - name: pairs
+    label: Before & after pairs
+    label_singular: Before & after pair
+    folder: content/pairs
+    create: true
+    identifier_field: title
+    slug: '{{fields.service}}-{{slug}}'
+    summary: '{{fields.title}} · {{fields.service}}'
+    extension: json
+    format: json
+    fields:
+      - label: 'Show on the website'
+        name: published
+        widget: boolean
+        default: true
+      - label: Which service
+        name: service
+        widget: select
+        options:
+          - { label: Tree surgery, value: tree-surgery }
+          - { label: Hedge cutting, value: hedge-cutting }
+          - { label: Garden work, value: garden-work }
+          - { label: Power washing, value: power-washing }
+      - label: Title
+        name: title
+        widget: string
+        hint: 'Short. It sits under the slider, e.g. "Conifer hedge reduced".'
+      - label: BEFORE photo
+        name: before
+        widget: image
+        hint: 'The messy one. Both photos must be of the same spot or the slider looks wrong.'
+      - label: AFTER photo
+        name: after
+        widget: image
+        hint: 'The finished one, taken from the same place as the before.'
+      - label: Caption
+        name: caption
+        widget: text
+        required: false
+      - label: Description for screen readers
+        name: alt
+        widget: string
+        required: false
+        hint: 'Optional. Describes the photo for anyone who cannot see it.'
+
+  # ---------------------------------------------------------------- photos
+  - name: photos
+    label: Photos
+    label_singular: Photo
+    folder: content/photos
+    create: true
+    # Captions are optional on a single photo, so the filename is built from
+    # the service and the time it was added rather than from the words in it.
+    slug: '{{fields.service}}-{{year}}{{month}}{{day}}-{{hour}}{{minute}}{{second}}'
+    summary: '{{fields.service}} · {{fields.caption}}'
+    extension: json
+    format: json
+    fields:
+      - label: 'Show on the website'
+        name: published
+        widget: boolean
+        default: true
+      - label: Which service
+        name: service
+        widget: select
+        options:
+          - { label: Tree surgery, value: tree-surgery }
+          - { label: Hedge cutting, value: hedge-cutting }
+          - { label: Garden work, value: garden-work }
+          - { label: Power washing, value: power-washing }
+      - label: Photo
+        name: image
+        widget: image
+      - label: Caption
+        name: caption
+        widget: string
+        required: false
+      - label: Description for screen readers
+        name: alt
+        widget: string
+        required: false
+
+  # -------------------------------------------------------------- settings
+  - name: settings
+    label: Settings
+    files:
+      - name: links
+        label: Links & listings
+        file: content/settings.json
+        extension: json
+        format: json
+        fields:
+          - label: Facebook pages
+            name: facebook
+            widget: list
+            fields:
+              - { label: 'Show this one', name: enabled, widget: boolean, default: true }
+              - { label: Button text, name: label, widget: string }
+              - { label: Link, name: url, widget: string }
+
+          - label: Google
+            name: google
+            widget: object
+            fields:
+              - { label: 'Read our reviews link', name: reviewsUrl, widget: string, required: false }
+              - { label: '"Leave a review" short link', name: writeUrl, widget: string, required: false }
+              - { label: Google Maps listing, name: mapsUrl, widget: string, required: false }
+              - { label: Place ID, name: placeId, widget: string, required: false }
+
+          - label: Google Analytics measurement ID
+            name: ga4Id
+            widget: string
+            required: false
+            hint: 'Looks like G-XXXXXXXXXX. Leave empty and no analytics loads at all.'
+
+          - label: Trade directories and review sites
+            name: directories
+            widget: list
+            summary: '{{fields.name}} · shown on the website: {{fields.enabled}}'
+            hint: 'Switch one on and it appears on the site. Off, and it is not rendered at all.'
+            fields:
+              - { label: 'Show on the website', name: enabled, widget: boolean, default: false }
+              - { label: Name, name: name, widget: string }
+              - { label: Link to your profile, name: url, widget: string, required: false }
+              - { label: Note to self, name: note, widget: string, required: false }

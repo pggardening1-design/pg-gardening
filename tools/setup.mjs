@@ -82,7 +82,7 @@ function replaceBlock(text, tag, replacement) {
 
 function walk(dir, out = []) {
   for (const name of readdirSync(dir)) {
-    if (['.git', 'node_modules', 'tools'].includes(name)) continue;
+    if (['.git', 'node_modules', 'tools', 'content', 'admin'].includes(name)) continue;
     const full = join(dir, name);
     if (statSync(full).isDirectory()) walk(full, out);
     else if (['.html', '.xml', '.txt', '.js'].includes(extname(name))) out.push(full);
@@ -201,6 +201,29 @@ for (const file of files) {
     summary.push(file.replace(ROOT + '/', ''));
     if (!DRY) writeFileSync(file, text, 'utf8');
   }
+}
+
+/* content/settings.json is what tools/build-content.mjs reads, so the same
+   values are written there too and the two never drift apart. */
+const SETTINGS = join(ROOT, 'content', 'settings.json');
+try {
+  const settings = JSON.parse(readFileSync(SETTINGS, 'utf8'));
+  if (args.phone1) settings.phone1 = { number: args.phone1, label: args.label1 || '' };
+  if (args.phone2) settings.phone2 = { number: args.phone2, label: args.label2 || '' };
+  if (args.email) settings.email = args.email;
+  if (args.domain) settings.domain = args.domain.replace(/\/+$/, '');
+  if (socials.length) {
+    settings.facebook = socials.map((url, i) => ({
+      label: (i === 0 ? 'PG Gardening on Facebook' : 'Our second Facebook page'),
+      url,
+      enabled: true,
+    }));
+  }
+  if (!DRY) writeFileSync(SETTINGS, JSON.stringify(settings, null, 2) + '\n', 'utf8');
+  changed++;
+  summary.push('content/settings.json');
+} catch (error) {
+  console.log('Note: content/settings.json could not be updated (' + error.message + ').');
 }
 
 console.log(`${DRY ? '[dry run] would update' : 'Updated'} ${changed} file(s).`);

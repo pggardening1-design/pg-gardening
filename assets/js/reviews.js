@@ -148,10 +148,34 @@
     });
   }
 
+  /* Trade directories and review sites --------------------------------
+     Only the listings switched on in the admin panel reach config.js, so an
+     empty list here means the owner has none set up and the whole block is
+     removed rather than left as an empty heading. */
+  function wireDirectories() {
+    var listings = (CONFIG.directories || []).filter(function (d) { return d && d.url && d.name; });
+
+    document.querySelectorAll('[data-directories]').forEach(function (el) {
+      var card = el.closest('[data-directories-card]');
+
+      if (!listings.length) {
+        if (card) card.remove(); else el.remove();
+        return;
+      }
+
+      el.innerHTML = listings.map(function (listing) {
+        return '<a class="btn btn--ghost" href="' + esc(listing.url) + '" ' +
+          'target="_blank" rel="noopener me">' + esc(listing.name) + '</a>';
+      }).join('');
+      if (card) card.hidden = false;
+    });
+  }
+
   function render() {
     renderReviews();
     wireGoogle();
     wireFacebook();
+    wireDirectories();
     if (window.PG && window.PG.initReveal) window.PG.initReveal();
   }
 
