@@ -137,24 +137,30 @@
   function renderGallery(el) {
     var slugs = slugsFor(el.dataset.pgGallery);
     var includePairs = el.dataset.includePairs !== 'off';
+    // data-limit caps how many photos each service contributes, so a page can
+    // show a taste of the work without turning into the whole gallery.
+    var limit = Number(el.dataset.limit || 0);
     var html = [];
     var count = 0;
 
     slugs.forEach(function (slug) {
       var service = svc(slug);
+      var forService = [];
 
       if (includePairs) {
         (service.pairs || []).forEach(function (pair) {
-          html.push(photoMarkup({ src: pair.before, alt: pair.altBefore, caption: pair.caption }, slug, 'Before'));
-          html.push(photoMarkup({ src: pair.after, alt: pair.altAfter, caption: pair.caption }, slug, 'After'));
-          count += 2;
+          forService.push(photoMarkup({ src: pair.before, alt: pair.altBefore, caption: pair.caption }, slug, 'Before'));
+          forService.push(photoMarkup({ src: pair.after, alt: pair.altAfter, caption: pair.caption }, slug, 'After'));
         });
       }
 
       (service.singles || []).forEach(function (item) {
-        html.push(photoMarkup(item, slug));
-        count += 1;
+        forService.push(photoMarkup(item, slug));
       });
+
+      if (limit > 0) forService = forService.slice(0, limit);
+      html = html.concat(forService);
+      count += forService.length;
     });
 
     if (!count) {

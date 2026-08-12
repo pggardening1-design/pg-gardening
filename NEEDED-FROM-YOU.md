@@ -113,12 +113,36 @@ fly-tips it, the *householder* can be prosecuted. Publishing the number is a
 genuine competitive advantage because most local competitors do not. It is
 free to check on the Environment Agency's public register.
 
-### 2.4 Memberships
+### 2.4 The guarantee — confirm the wording
+
+The 100% satisfaction seal is now on the home page, all four service pages and
+the About page. Underneath it the site currently says:
+
+> If you are not happy with any part of the work, tell us before we leave — or
+> ring us afterwards — and we will come back and put it right.
+
+**Confirm that is what you actually offer, and tell me two things:**
+
+1. **How long it runs.** A guarantee with no time limit is read as open-ended.
+   Say "within 14 days", "within a month", whatever you are happy to stand by.
+2. **What it does not cover.** Storm damage after you have left, plants that
+   fail to take, that sort of thing.
+
+Under the Consumer Protection from Unfair Trading Regulations a guarantee has
+to be honoured as a customer would reasonably understand it, so it is worth
+being specific. A short, real guarantee beats a vague badge.
+
+The seal is drawn in the site's own colours rather than the stock image you
+sent, which had a grey background baked into it and would have sat awkwardly on
+the pages. Your original file is kept at `assets/img/brand/guarantee-supplied.png`
+if you would rather use it.
+
+### 2.5 Memberships
 
 Only if genuinely held and current — Arboricultural Association, Checkatrade,
 TrustMark, Which? Trusted Traders, etc.: ............................
 
-### 2.5 Payment methods
+### 2.6 Payment methods
 
 Cash, bank transfer, card, cheque? The contact page FAQ currently says "ask
 when we quote" with a marker on it.
