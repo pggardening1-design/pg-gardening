@@ -1,30 +1,90 @@
 {
   "tree-surgery/before-01.jpg": {
     "title": "Overgrown conifer reduced",
-    "caption": "A conifer that had spread right over the railings, cut back hard and the debris cleared.",
+    "caption": "A conifer that had spread right over the railings, cut back hard and every bit of the debris carted off.",
     "alt": "Overgrown conifer reduced — before PG Gardening & Tree Surgeon started work"
   },
   "tree-surgery/after-01.jpg": {
     "title": "Overgrown conifer reduced",
-    "caption": "A conifer that had spread right over the railings, cut back hard and the debris cleared.",
+    "caption": "A conifer that had spread right over the railings, cut back hard and every bit of the debris carted off.",
     "alt": "Overgrown conifer reduced — the same spot after the job was finished"
   },
+  "tree-surgery/before-02.jpg": {
+    "title": "Dead conifer taken out",
+    "caption": "The dead one lifted out from among the healthy conifers, leaving the rest of the group untouched.",
+    "alt": "Dead conifer taken out — before PG Gardening & Tree Surgeon started work"
+  },
+  "tree-surgery/after-02.jpg": {
+    "title": "Dead conifer taken out",
+    "caption": "The dead one lifted out from among the healthy conifers, leaving the rest of the group untouched.",
+    "alt": "Dead conifer taken out — the same spot after the job was finished"
+  },
+  "tree-surgery/before-03.jpg": {
+    "title": "Roadside growth cut back",
+    "caption": "A self-set tree that had swallowed the verge, reduced to open the frontage back up.",
+    "alt": "Roadside growth cut back — before PG Gardening & Tree Surgeon started work"
+  },
+  "tree-surgery/after-03.jpg": {
+    "title": "Roadside growth cut back",
+    "caption": "A self-set tree that had swallowed the verge, reduced to open the frontage back up.",
+    "alt": "Roadside growth cut back — the same spot after the job was finished"
+  },
   "hedge-cutting/before-01.jpg": {
-    "title": "Conifer reshaped",
-    "caption": "The same conifer in the border, brought back to a clean shape.",
-    "alt": "Conifer reshaped — before PG Gardening & Tree Surgeon started work"
+    "title": "Hedge brought back to level",
+    "caption": "Ladder work along the run, taking the top back to a straight line and squaring the sides.",
+    "alt": "Hedge brought back to level — before PG Gardening & Tree Surgeon started work"
   },
   "hedge-cutting/after-01.jpg": {
-    "title": "Conifer reshaped",
-    "caption": "The same conifer in the border, brought back to a clean shape.",
-    "alt": "Conifer reshaped — the same spot after the job was finished"
+    "title": "Hedge brought back to level",
+    "caption": "Ladder work along the run, taking the top back to a straight line and squaring the sides.",
+    "alt": "Hedge brought back to level — the same spot after the job was finished"
   },
   "hedge-cutting/before-02.jpg": {
+    "title": "Conifer hedge reduced",
+    "caption": "A conifer run that had closed in over the path, taken down to a height that can be reached again.",
+    "alt": "Conifer hedge reduced — before PG Gardening & Tree Surgeon started work"
+  },
+  "hedge-cutting/after-02.jpg": {
+    "title": "Conifer hedge reduced",
+    "caption": "A conifer run that had closed in over the path, taken down to a height that can be reached again.",
+    "alt": "Conifer hedge reduced — the same spot after the job was finished"
+  },
+  "hedge-cutting/before-03.jpg": {
+    "title": "Conifer reshaped",
+    "caption": "The same conifer in the border, brought back to a clean shape rather than simply topped.",
+    "alt": "Conifer reshaped — before PG Gardening & Tree Surgeon started work"
+  },
+  "hedge-cutting/after-03.jpg": {
+    "title": "Conifer reshaped",
+    "caption": "The same conifer in the border, brought back to a clean shape rather than simply topped.",
+    "alt": "Conifer reshaped — the same spot after the job was finished"
+  },
+  "hedge-cutting/before-04.jpg": {
+    "title": "Corner bush reduced",
+    "caption": "The bush on the turning reduced so it stopped blocking the view of the drive.",
+    "alt": "Corner bush reduced — before PG Gardening & Tree Surgeon started work"
+  },
+  "hedge-cutting/after-04.jpg": {
+    "title": "Corner bush reduced",
+    "caption": "The bush on the turning reduced so it stopped blocking the view of the drive.",
+    "alt": "Corner bush reduced — the same spot after the job was finished"
+  },
+  "hedge-cutting/before-05.jpg": {
+    "title": "Boundary hedge cut",
+    "caption": "Sides taken in and the top levelled off along the whole boundary.",
+    "alt": "Boundary hedge cut — before PG Gardening & Tree Surgeon started work"
+  },
+  "hedge-cutting/after-05.jpg": {
+    "title": "Boundary hedge cut",
+    "caption": "Sides taken in and the top levelled off along the whole boundary.",
+    "alt": "Boundary hedge cut — the same spot after the job was finished"
+  },
+  "hedge-cutting/before-06.jpg": {
     "title": "Hard prune beside the conifers",
     "caption": "Overgrown shrub taken right back so the conifers behind it have room again.",
     "alt": "Hard prune beside the conifers — before PG Gardening & Tree Surgeon started work"
   },
-  "hedge-cutting/after-02.jpg": {
+  "hedge-cutting/after-06.jpg": {
     "title": "Hard prune beside the conifers",
     "caption": "Overgrown shrub taken right back so the conifers behind it have room again.",
     "alt": "Hard prune beside the conifers — the same spot after the job was finished"
@@ -40,14 +100,64 @@
     "alt": "Full garden clearance — the same spot after the job was finished"
   },
   "garden-work/before-02.jpg": {
+    "title": "The same clearance, from the steps",
+    "caption": "The view down from the top of the garden, before the first cut and after the last load went.",
+    "alt": "The same clearance, from the steps — before PG Gardening & Tree Surgeon started work"
+  },
+  "garden-work/after-02.jpg": {
+    "title": "The same clearance, from the steps",
+    "caption": "The view down from the top of the garden, before the first cut and after the last load went.",
+    "alt": "The same clearance, from the steps — the same spot after the job was finished"
+  },
+  "garden-work/before-03.jpg": {
     "title": "Overgrown plot cleared",
     "caption": "Waist-high grass down the side of the garage, cleared back to bare ground.",
     "alt": "Overgrown plot cleared — before PG Gardening & Tree Surgeon started work"
   },
-  "garden-work/after-02.jpg": {
+  "garden-work/after-03.jpg": {
     "title": "Overgrown plot cleared",
     "caption": "Waist-high grass down the side of the garage, cleared back to bare ground.",
     "alt": "Overgrown plot cleared — the same spot after the job was finished"
+  },
+  "garden-work/before-04.jpg": {
+    "title": "Lawn cut back into a lawn",
+    "caption": "Knee-deep grass and buttercups down to a striped lawn in a single visit.",
+    "alt": "Lawn cut back into a lawn — before PG Gardening & Tree Surgeon started work"
+  },
+  "garden-work/after-04.jpg": {
+    "title": "Lawn cut back into a lawn",
+    "caption": "Knee-deep grass and buttercups down to a striped lawn in a single visit.",
+    "alt": "Lawn cut back into a lawn — the same spot after the job was finished"
+  },
+  "garden-work/before-05.jpg": {
+    "title": "Back yard reclaimed",
+    "caption": "Weeds lifted out of the flags and the whole yard cleared ready to be used again.",
+    "alt": "Back yard reclaimed — before PG Gardening & Tree Surgeon started work"
+  },
+  "garden-work/after-05.jpg": {
+    "title": "Back yard reclaimed",
+    "caption": "Weeds lifted out of the flags and the whole yard cleared ready to be used again.",
+    "alt": "Back yard reclaimed — the same spot after the job was finished"
+  },
+  "garden-work/before-06.jpg": {
+    "title": "Front garden tidied",
+    "caption": "Overgrowth off the path and the borders cut back to the shapes underneath.",
+    "alt": "Front garden tidied — before PG Gardening & Tree Surgeon started work"
+  },
+  "garden-work/after-06.jpg": {
+    "title": "Front garden tidied",
+    "caption": "Overgrowth off the path and the borders cut back to the shapes underneath.",
+    "alt": "Front garden tidied — the same spot after the job was finished"
+  },
+  "garden-work/before-07.jpg": {
+    "title": "Side garden stripped back",
+    "caption": "Everything down the side of the house taken out and the ground left clean.",
+    "alt": "Side garden stripped back — before PG Gardening & Tree Surgeon started work"
+  },
+  "garden-work/after-07.jpg": {
+    "title": "Side garden stripped back",
+    "caption": "Everything down the side of the house taken out and the ground left clean.",
+    "alt": "Side garden stripped back — the same spot after the job was finished"
   },
   "power-washing/before-01.jpg": {
     "title": "Flagged path washed",
@@ -60,13 +170,43 @@
     "alt": "Flagged path washed — the same spot after the job was finished"
   },
   "power-washing/before-02.jpg": {
+    "title": "The same path, from the road",
+    "caption": "The other end of the same run, showing the line where the washing started.",
+    "alt": "The same path, from the road — before PG Gardening & Tree Surgeon started work"
+  },
+  "power-washing/after-02.jpg": {
+    "title": "The same path, from the road",
+    "caption": "The other end of the same run, showing the line where the washing started.",
+    "alt": "The same path, from the road — the same spot after the job was finished"
+  },
+  "power-washing/before-03.jpg": {
     "title": "Patterned concrete patio",
     "caption": "Moss and green film washed out of the pattern, back to the original colour.",
     "alt": "Patterned concrete patio — before PG Gardening & Tree Surgeon started work"
   },
-  "power-washing/after-02.jpg": {
+  "power-washing/after-03.jpg": {
     "title": "Patterned concrete patio",
     "caption": "Moss and green film washed out of the pattern, back to the original colour.",
     "alt": "Patterned concrete patio — the same spot after the job was finished"
+  },
+  "power-washing/before-04.jpg": {
+    "title": "Side passage washed",
+    "caption": "The shaded passage between the houses, where the green builds up fastest.",
+    "alt": "Side passage washed — before PG Gardening & Tree Surgeon started work"
+  },
+  "power-washing/after-04.jpg": {
+    "title": "Side passage washed",
+    "caption": "The shaded passage between the houses, where the green builds up fastest.",
+    "alt": "Side passage washed — the same spot after the job was finished"
+  },
+  "power-washing/before-05.jpg": {
+    "title": "Block paving cleaned",
+    "caption": "Grime out of the joints and off the pattern, then fresh kiln-dried sand brushed back in.",
+    "alt": "Block paving cleaned — before PG Gardening & Tree Surgeon started work"
+  },
+  "power-washing/after-05.jpg": {
+    "title": "Block paving cleaned",
+    "caption": "Grime out of the joints and off the pattern, then fresh kiln-dried sand brushed back in.",
+    "alt": "Block paving cleaned — the same spot after the job was finished"
   }
 }
