@@ -88,7 +88,7 @@
   --wrap: 1180px;
   --wrap-narrow: 760px;
 
-  --header-h: 68px;
+  --header-h: 80px;
   --callbar-h: 0px;
 }
 
@@ -325,15 +325,32 @@ strong { font-weight: 700; }
   min-width: 0;
 }
 
+/* The logo artwork is white-on-dark by design: its "PG" and "& TREE SURGEON"
+   are near-white, so on the light header they wash out to almost nothing.
+   Rather than recolour somebody's logo, it sits on a dark green plate — the
+   background it was drawn for — which keeps it crisp and reads as a badge. */
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: var(--sp-3);
+  gap: var(--sp-4);
   text-decoration: none;
   color: var(--green-900);
   min-width: 0;
 }
-.brand__mark { width: 42px; height: 42px; flex-shrink: 0; }
+.brand__plate {
+  display: block;
+  flex-shrink: 0;
+  background: var(--green-900);
+  border-radius: var(--r-md);
+  padding: 0.5rem 0.8rem;
+  line-height: 0;
+}
+.brand__logo {
+  display: block;
+  width: clamp(148px, 17vw, 212px);
+  height: auto;
+}
+/* Still used by the footer, which sets the name in type rather than artwork. */
 .brand__text { display: flex; flex-direction: column; line-height: 1.1; min-width: 0; }
 .brand__name {
   font-family: var(--font-display);
@@ -444,7 +461,16 @@ strong { font-weight: 700; }
   .nav-toggle { display: inline-flex; }
   .nav {
     position: fixed;
-    inset: var(--header-h) 0 0 0;
+    /* The header sets backdrop-filter, and that makes it the containing block
+       for any fixed-position child — so these offsets resolve against the
+       header, not the viewport. Anchoring the panel to the bottom of the
+       header and giving it an explicit height is what stops it collapsing to
+       a sliver with the menu scrolling inside it.
+       dvh second so it wins where supported: it accounts for the phone
+       browser's own address bar, which vh does not. */
+    inset: 100% 0 auto 0;
+    height: calc(100vh - var(--header-h));
+    height: calc(100dvh - var(--header-h));
     background: var(--cream-050);
     display: none;
     padding: var(--sp-5);
@@ -466,16 +492,15 @@ strong { font-weight: 700; }
   .header-cta .btn--primary { display: none; }
 }
 
-/* Small phones: the business name is long, so the lock-up gets smaller and is
-   allowed to wrap instead of pushing the burger off the screen. */
+/* Small phones: the logo comes down a size so it never pushes the burger off
+   the screen. */
 @media (max-width: 560px) {
-  .brand__mark { width: 36px; height: 36px; }
-  .brand__name { font-size: 0.92rem; line-height: 1.15; }
-  .brand { gap: var(--sp-2); }
+  .brand__logo { width: 142px; }
+  .brand__plate { padding: 0.4rem 0.6rem; }
 }
 
 @media (max-width: 430px) {
-  .brand__strap { display: none; }
+  .brand__logo { width: 126px; }
   .nav-toggle { padding: 0.55rem 0.7rem; }
   /* Clipped, not display:none, so the button keeps its accessible name. */
   .nav-toggle__text {
