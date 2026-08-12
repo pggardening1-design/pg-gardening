@@ -381,8 +381,10 @@
     boot();
   }
 
-  // Exposed so media.js can wire up sliders it injects after load.
+  // Exposed so media.js can wire up sliders it injects after load, and so a
+  // bundled single-file copy of the site can re-run them after swapping page.
   window.PG = window.PG || {};
   window.PG.initBeforeAfter = initBeforeAfter;
   window.PG.initReveal = initReveal;
+  window.PG.initFilters = initFilters;
 })();
