@@ -12,8 +12,8 @@ window.PG_CONFIG = {
        "https://www.facebook.com/YourPageName"
      Leave "label" as something a customer would understand. */
   facebook: [
-    { label: '', url: '' },   // Facebook page 1 — URL needed
-    { label: '', url: '' }    // Facebook page 2 — URL needed
+    { label: '', url: 'https://www.facebook.com/share/1E5XWc1L7V/' },
+    { label: '', url: 'https://www.facebook.com/share/1b42MzoTax/' }
   ],
 
   /* --- Google Business Profile ----------------------------------------

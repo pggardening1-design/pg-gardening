@@ -129,11 +129,13 @@ enquiries collect in the dashboard and nobody sees them.
   Where one is needed it is a visible `.pending` marker. Please keep it that
   way.
 - **`reviews-data.js` currently holds 200 fictional demo reviews** added for a
-  school project. `PG_REVIEWS_DEMO = true` makes the page label them as sample
-  data on every card and show a notice above the list. Do not strip those
-  labels while the fake data is present — publishing unlabelled fake reviews
-  is illegal in the UK under the DMCC Act 2024. To remove: set the flag to
-  false and set `PG_REVIEWS` to `[]`. See NEEDED-FROM-YOU.md section 3.2.
+  school project. They are marked in the source only — the header warning,
+  `PG_REVIEWS_DEMO` and `demo: true` on each record — and at the owner's
+  request nothing on the page says so, though demo records do print no
+  provenance line rather than claiming they were left on this site. Publishing
+  unlabelled fake reviews is illegal in the UK under the DMCC Act 2024, so
+  clear the dataset before this goes on a live commercial domain: set the flag
+  to false and `PG_REVIEWS` to `[]`. See NEEDED-FROM-YOU.md section 3.2.
 - **No review or rating schema.** Google's guidelines forbid marking up
   reviews collected on Google, and it risks a manual penalty. The site
   carries `LocalBusiness`, `Service`, `BreadcrumbList` and `FAQPage` markup

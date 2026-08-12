@@ -21,6 +21,12 @@
  *     --email  "info@example.co.uk" \
  *     --domain "https://www.example.co.uk"
  *
+ * Social pages, which also go into the structured data:
+ *
+ *   node tools/setup.mjs \
+ *     --facebook1 "https://www.facebook.com/..." \
+ *     --facebook2 "https://www.facebook.com/..."
+ *
  * Just the domain, later on:
  *
  *   node tools/setup.mjs --domain "https://www.example.co.uk"
@@ -48,7 +54,7 @@ for (let i = 2; i < process.argv.length; i++) {
 }
 const DRY = Boolean(args.dryRun);
 
-if (!args.phone1 && !args.phone2 && !args.email && !args.domain) {
+if (!args.phone1 && !args.phone2 && !args.email && !args.domain && !args.facebook1 && !args.facebook2) {
   console.log(readFileSync(new URL(import.meta.url)).toString().split('*/')[0].replace(/^\/\*\*?/, ''));
   process.exit(0);
 }
@@ -108,6 +114,23 @@ function barPhone(number, label, fallback) {
     `<span>${esc(label || fallback)}</span><small>${esc(number)}</small></a>`;
 }
 
+/**
+ * Facebook share links arrive with a tracking parameter attached when they are
+ * copied out of the app. It serves no purpose on our own website, so it comes
+ * off before the link is published.
+ */
+function cleanSocial(url) {
+  try {
+    const u = new URL(String(url).trim());
+    ['mibextid', 'fbclid', 'rdid', 'sfnsn', 'ref', 'mibextid_source'].forEach((p) => u.searchParams.delete(p));
+    return u.toString().replace(/\?$/, '');
+  } catch (error) {
+    return String(url).trim();
+  }
+}
+
+const socials = [args.facebook1, args.facebook2].filter(Boolean).map(cleanSocial);
+
 /* --------------------------------------------------------------- apply --- */
 const files = walk(ROOT);
 let changed = 0;
@@ -144,6 +167,14 @@ for (const file of files) {
     text = text.split(DOMAIN_PLACEHOLDER).join(domain);
   }
 
+  // sameAs tells search engines the site and the social profiles are the same
+  // business, so the Facebook pages belong in the structured data as well as
+  // in config.js.
+  if (socials.length) {
+    text = text.replace(/"sameAs":\s*\[[^\]]*\]/g,
+      `"sameAs": [${socials.map((u) => `"${u}"`).join(', ')}]`);
+  }
+
   // config.js keeps its own copy for the JavaScript side of the site.
   if (file.endsWith('assets/js/config.js') || file.endsWith('assets\\js\\config.js')) {
     if (args.phone1) {
@@ -156,6 +187,13 @@ for (const file of files) {
     }
     if (args.email) text = text.replace(/email:\s*'[^']*'/, `email: '${args.email}'`);
     if (args.domain) text = text.replace(/domain:\s*'[^']*'/, `domain: '${args.domain}'`);
+    if (socials.length) {
+      const labels = [args.fblabel1 || '', args.fblabel2 || ''];
+      const entries = socials
+        .map((u, i) => `\n    { label: '${labels[i].replace(/'/g, "\\'")}', url: '${u}' }`)
+        .join(',');
+      text = text.replace(/facebook:\s*\[[\s\S]*?\n\s*\],/, `facebook: [${entries}\n  ],`);
+    }
   }
 
   if (text !== original) {

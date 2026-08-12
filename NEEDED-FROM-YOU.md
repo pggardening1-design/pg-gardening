@@ -127,14 +127,30 @@ when we quote" with a marker on it.
 
 ## 3. Facebook, Google and reviews
 
-### 3.1 Facebook — both pages
+### 3.1 Facebook — DONE, with two notes
 
-- Page 1 URL: ............................ what is it for? ....................
-- Page 2 URL: ............................ what is it for? ....................
+Both pages are live in the footer, on the contact page and on the reviews page:
 
-Paste them into `assets/js/config.js` and the links appear in the footer, on
-the contact page and on the reviews page. Until then those spots show a
-"Facebook page URLs needed" marker rather than a link to nowhere.
+- `https://www.facebook.com/share/1E5XWc1L7V/`
+- `https://www.facebook.com/share/1b42MzoTax/`
+
+They are also in the site's structured data, which is how Google connects the
+website and the Facebook pages to the same business.
+
+**Two things worth doing when you get a minute:**
+
+1. **These are share links, not page addresses.** They work — Facebook
+   redirects them — but a share link is a redirect that Facebook controls and
+   could change. The proper address looks like
+   `facebook.com/YourPageName`. Open each page on a desktop browser, copy the
+   address bar, and send me both; I will swap them in.
+2. **Tell me which is which.** They currently read "PG Gardening on Facebook"
+   and "Our second Facebook page", because I do not know what the second one
+   is for. If one is the tree surgery side and one is gardening, or one is
+   personal and one is the business, say so and the buttons will say it too.
+
+I could not check either link from here — Facebook is blocked on this machine's
+network — so please click both and confirm they land where you expect.
 
 **My recommendation: links, not embedded feeds.** An embedded Facebook feed
 adds roughly 300–500 KB and several third-party trackers to every page it sits

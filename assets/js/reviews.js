@@ -133,7 +133,11 @@
       }
 
       el.innerHTML = pages.map(function (page, i) {
-        var label = page.label || ('PG Gardening on Facebook' + (pages.length > 1 ? ' (page ' + (i + 1) + ')' : ''));
+        // Until the owner tells us what each page is for, the second one is
+        // described by position rather than given an invented purpose.
+        var label = page.label || (i === 0
+          ? 'PG Gardening on Facebook'
+          : 'Our second Facebook page');
         if (style === 'icons') {
           return '<a href="' + esc(page.url) + '" target="_blank" rel="noopener me" ' +
             'aria-label="' + esc(label) + '">' + FB_ICON + '</a>';
