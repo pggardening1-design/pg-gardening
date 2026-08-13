@@ -346,21 +346,6 @@ strong { font-weight: 700; }
     drop-shadow(0 0 1px rgba(15, 58, 38, 0.85));
 }
 /* Still used by the footer, which sets the name in type rather than artwork. */
-.brand__text { display: flex; flex-direction: column; line-height: 1.1; min-width: 0; }
-.brand__name {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.06rem;
-  letter-spacing: -0.01em;
-}
-.brand__strap {
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ink-500);
-  font-weight: 600;
-}
-
 .nav-toggle {
   display: none;
   align-items: center;
@@ -1259,8 +1244,17 @@ th { background: var(--cream-200); font-weight: 700; color: var(--green-900); }
 .site-footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--sp-2); }
 .site-footer a { color: rgba(253, 250, 244, 0.86); text-decoration: none; }
 .site-footer a:hover { color: var(--white); text-decoration: underline; }
-.footer-brand .brand__name { color: var(--white); font-size: 1.15rem; }
-.footer-brand .brand__strap { color: var(--bark-300); }
+/* The footer is already the dark green the logo was drawn for, so it goes in
+   plainly here — no shadow needed, unlike the light header. */
+.footer-brand__logo { width: min(240px, 80%); height: auto; margin-bottom: var(--sp-3); }
+.footer-brand .brand__strap {
+  display: block;
+  color: var(--bark-300);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
 .footer-bottom {
   padding-top: var(--sp-5);
   display: flex;

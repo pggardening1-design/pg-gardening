@@ -135,6 +135,36 @@ const reviewsOut =
   `window.PG_REVIEWS_DEMO = ${demoOn};\n` +
   'window.PG_REVIEWS = ' + JSON.stringify(approved.concat(demoReviews), null, 1) + ';\n';
 
+/* A launch guard, not a style preference.
+   The sample reviews are invented. While the site has no real domain they are
+   harmless demonstration data for a school project. The moment a real domain
+   is set, the same file is a trading website publishing fake consumer reviews,
+   which is a banned practice under the Digital Markets, Competition and
+   Consumers Act 2024 — the CMA can act directly and the penalties run to a
+   percentage of turnover.
+
+   Setting the domain is exactly the step where this gets forgotten, so the
+   build stops there rather than printing a warning into a deploy log nobody
+   reads. Fixing it is one word. */
+const domain = String(settings.domain || '');
+const domainIsReal = domain !== '' && !domain.includes('REPLACE-WITH-YOUR-DOMAIN');
+
+if (demoOn && domainIsReal && demo.acknowledgedRisk !== true) {
+  console.error(
+    '\n  BUILD STOPPED — the sample reviews are still switched on.\n\n' +
+      `  This site now has a real domain (${domain}), so it is a trading\n` +
+      '  website. The reviews page currently carries ' + demoReviews.length + ' invented reviews\n' +
+      '  added as demonstration data for a school project.\n\n' +
+      '  Publishing fake consumer reviews is a banned practice in the UK under\n' +
+      '  the Digital Markets, Competition and Consumers Act 2024.\n\n' +
+      '  To fix it, open content/demo-reviews.json and change:\n' +
+      '      "enabled": true   ->   "enabled": false\n\n' +
+      '  All of them come off the site at once and the file stays put, so the\n' +
+      '  school project still has them.\n'
+  );
+  process.exit(1);
+}
+
 writeFileSync(join(ROOT, 'assets', 'js', 'reviews-data.js'), reviewsOut);
 log.push(`reviews-data.js: ${approved.length} approved, ${waiting} waiting, ${withheld} withheld${demoOn ? `, ${demoReviews.length} sample` : ''}`);
 

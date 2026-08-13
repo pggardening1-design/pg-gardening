@@ -143,6 +143,11 @@ sent, which had a grey background baked into it and would have sat awkwardly on
 the pages. Your original file is kept at `assets/img/brand/guarantee-supplied.png`
 if you would rather use it.
 
+**A safety catch on the sample reviews.** The build now refuses to run if the
+sample reviews are still switched on once a real domain is set — the exact
+moment this gets forgotten. It stops with a message telling you which file to
+change. See section 3.2.
+
 ### 2.5 Memberships and trade directory listings
 
 Only if genuinely held and current — Arboricultural Association, Checkatrade,
@@ -289,17 +294,19 @@ Three separate things — see `GOOGLE-SETUP.md` for the step-by-step.
 
 ## 4. Photos
 
-See `PHOTOS.md` for the full instructions — the short version is that you drop
-files into `assets/img/gallery/<service>/` and they go live on the next
-deploy. No code, no editing.
+**This one is done.** 101 of your photos are on the site, sorted into the four
+services, with 25 before-and-after sliders. Every pair was checked to be the
+same place before and after, in the right order, with a visible difference.
+There is not one stock photo of somebody else's garden anywhere on this site,
+and there never should be.
 
-**The target is one before/after pair per service to start with** — four pairs
-in total, not a dozen. A pair only publishes when both halves exist, so please
-take the "before" shot from a spot you can stand in again afterwards.
+To add more, either use the admin panel (**Photos**, or **Before & after
+pairs**), or drop files into `assets/img/gallery/<service>/` — `PHOTOS.md`
+covers the naming. Both routes end up in the same place.
 
-Right now every photo position shows a labelled placeholder. There is not one
-stock photo of somebody else's garden anywhere on this site, and there never
-should be.
+One thing worth knowing when you take new ones: a pair only publishes when
+both halves exist, so take the "before" shot from a spot you can stand in
+again afterwards.
 
 ---
 
