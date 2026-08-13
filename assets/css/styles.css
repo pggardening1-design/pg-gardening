@@ -570,6 +570,18 @@ body.nav-open { overflow: hidden; }
 @media (max-width: 900px) {
   .hero__inner { grid-template-columns: 1fr; gap: var(--sp-6); }
 }
+
+/* On a phone the headline was running to four lines and taking a third of the
+   screen, which pushed the quote button off the bottom. Tighter type and less
+   padding gets the eyebrow, headline, promise and both buttons onto the first
+   screen, which is the whole job of a landing page. */
+@media (max-width: 560px) {
+  .hero__inner { padding-block: clamp(1.75rem, 6vw, 3rem); gap: var(--sp-5); }
+  .hero h1 { font-size: clamp(1.9rem, 1.1rem + 4.6vw, 2.4rem); line-height: 1.1; }
+  .hero__lede { font-size: 1.03rem; margin-bottom: var(--sp-4); }
+  /* Sized so the towns sit on one line rather than orphaning a word. */
+  .hero .eyebrow { margin-bottom: var(--sp-2); font-size: 0.76rem; letter-spacing: 0.06em; }
+}
 .hero h1 { color: var(--white); margin-bottom: var(--sp-4); }
 .hero h1 em {
   font-style: normal;
@@ -1025,10 +1037,12 @@ a.card:hover .card__more svg { transform: translateX(3px); }
 }
 
 @media (max-width: 520px) {
-  .seal { flex-direction: column; text-align: center; gap: var(--sp-4); }
-  /* Not shrunk on phones. The badge carries type inside it, and scaling the
-     badge down scales the words down with it. It stacks above the wording
-     here, so there is room to leave it alone. */
+  /* The big seal block stacks on a phone. The inline pill in the hero shares
+     the .seal class but is a badge-and-label lock-up, not a block — stacking
+     it left the tick floating above its own caption. */
+  .seal:not(.seal--inline) { flex-direction: column; text-align: center; gap: var(--sp-4); }
+  /* The badge is not shrunk on phones. It carries type inside it, and scaling
+     the badge down scales the words down with it. */
 }
 
 /* --------------------------------------------------------------------------
@@ -1434,6 +1448,18 @@ th { background: var(--cream-200); font-weight: 700; color: var(--green-900); }
 .cookie-banner h2 { font-size: var(--step-1); margin-bottom: var(--sp-2); }
 .cookie-banner p { font-size: 0.92rem; margin-bottom: var(--sp-4); color: var(--ink-700); }
 .cookie-banner .btn-row .btn { flex: 1 1 140px; font-size: 0.95rem; padding: 0.7em 1em; }
+
+/* On a phone this used to fill better than half the screen and bury the
+   "Get a free quote" button underneath it on every first visit. It still says
+   everything it has to say, and both choices are still equally easy to reach —
+   it just stops eating the page while it does it. */
+@media (max-width: 560px) {
+  .cookie-banner { padding: var(--sp-4); left: var(--sp-3); right: var(--sp-3); }
+  .cookie-banner h2 { font-size: 1.05rem; }
+  .cookie-banner p { font-size: 0.86rem; margin-bottom: var(--sp-3); }
+  .cookie-banner .btn-row { gap: var(--sp-2); }
+  .cookie-banner .btn-row .btn { flex: 1 1 100%; font-size: 0.92rem; padding: 0.65em 1em; }
+}
 
 /* --------------------------------------------------------------------------
    19. Scroll reveal
