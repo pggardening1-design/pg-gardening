@@ -43,6 +43,7 @@
 }
 </script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://REPLACE-WITH-YOUR-DOMAIN/"},{"@type":"ListItem","position":2,"name":"Contact"}]}</script><script src="/assets/js/config.js"></script>
 <script src="/assets/js/site.js" defer></script>
+<script src="/assets/js/area-check.js" defer></script>
 <script src="/assets/js/reviews-data.js"></script>
 <script src="/assets/js/reviews.js" defer></script>
 </head>
@@ -178,6 +179,18 @@
 <p class="mb-0">Storm damage and anything unsafe is dealt with outside those hours. If a tree is down, ring rather than emailing &mdash; nobody reads email at nine at night.</p>
 </div>
 
+<div class="card area-check mt-5" data-area-check>
+<h3>Do we cover your postcode?</h3>
+<p>Type it in and you get a straight answer. Nothing is sent anywhere &mdash; the check happens on your own phone.</p>
+<form class="area-check__form" novalidate>
+<div class="field">
+<label for="ac-postcode">Your postcode</label>
+<input id="ac-postcode" name="postcode" type="text" inputmode="text" autocomplete="postal-code" placeholder="e.g. BB1 7DP" maxlength="9" spellcheck="false" autocapitalize="characters">
+</div>
+<button class="btn btn--primary" type="submit">Check my postcode</button>
+</form>
+<p class="area-check__result" data-area-result role="status" aria-live="polite" hidden></p>
+</div>
 <div class="card mt-5">
 <h3>Where we work</h3>
 <p>Blackburn, Darwen, Accrington, Great Harwood, Rishton, Oswaldtwistle, Clitheroe, Whalley, Langho, Wilpshire, Mellor, Ribchester, Burnley, Padiham, Longridge, Chorley and Preston.</p>

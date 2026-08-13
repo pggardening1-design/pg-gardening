@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="/assets/css/styles.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://REPLACE-WITH-YOUR-DOMAIN/"},{"@type":"ListItem","position":2,"name":"Areas covered"}]}</script><script src="/assets/js/config.js"></script>
 <script src="/assets/js/site.js" defer></script>
+<script src="/assets/js/area-check.js" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -115,7 +116,19 @@
 <div class="btn-row"><a class="btn btn--primary" href="/contact.html">Ask about your area</a></div>
 </div>
 <div class="reveal">
-<div class="card">
+<div class="card area-check" data-area-check>
+<h3>Do we cover your postcode?</h3>
+<p>Type it in and you get a straight answer. Nothing is sent anywhere &mdash; the check happens on your own phone.</p>
+<form class="area-check__form" novalidate>
+<div class="field">
+<label for="ac-postcode">Your postcode</label>
+<input id="ac-postcode" name="postcode" type="text" inputmode="text" autocomplete="postal-code" placeholder="e.g. BB1 7DP" maxlength="9" spellcheck="false" autocapitalize="characters">
+</div>
+<button class="btn btn--primary" type="submit">Check my postcode</button>
+</form>
+<p class="area-check__result" data-area-result role="status" aria-live="polite" hidden></p>
+</div>
+<div class="card mt-5">
 <h3>Travelling further for</h3>
 <ul class="ticks">
 <li>Tree felling and sectional dismantling</li>

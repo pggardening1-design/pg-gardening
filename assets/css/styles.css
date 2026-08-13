@@ -1125,6 +1125,38 @@ input:focus, select:focus, textarea:focus { border-color: var(--green-700); }
 
 .form-note { font-size: 0.85rem; color: var(--ink-500); }
 
+/* Postcode checker ---------------------------------------------------------
+   The answer is colour-coded, but the colour only repeats what the words
+   already say — nobody has to tell green from amber to understand it. */
+.area-check__form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--sp-3);
+  margin-top: var(--sp-4);
+}
+.area-check__form .field { flex: 1 1 11rem; margin: 0; }
+.area-check__form input { text-transform: uppercase; }
+.area-check__form .btn { flex: 0 0 auto; }
+
+.area-check__result {
+  margin: var(--sp-4) 0 0;
+  padding: var(--sp-4);
+  border-radius: var(--r-sm);
+  border-left: 4px solid var(--line-strong);
+  background: var(--cream-200);
+  color: var(--ink-900);
+  font-size: 0.95rem;
+}
+.area-check__result.is-yes { background: var(--green-050); border-left-color: var(--green-700); }
+.area-check__result.is-maybe { background: var(--amber-100); border-left-color: var(--amber-600); }
+.area-check__result.is-no,
+.area-check__result.is-error { background: var(--cream-200); border-left-color: var(--ink-500); }
+
+@media (max-width: 420px) {
+  .area-check__form .btn { width: 100%; }
+}
+
 /* The customer's own words, carried from the review form to the thank-you page
    so they can paste them onto Google without retyping. */
 .review-carry {
