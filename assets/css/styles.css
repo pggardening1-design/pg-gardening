@@ -551,14 +551,46 @@ body.nav-open { overflow: hidden; }
   overflow: hidden;
   isolation: isolate;
 }
+/* The hero photograph. It sits behind the type at full strength and is
+   darkened by the scrim below rather than by its own opacity, which keeps the
+   branded kit and the chipper readable instead of washing the whole thing out.
+   Decorative here: it is a backdrop to the headline, and announcing it ahead
+   of the headline would only get in the way. */
 .hero__media {
   position: absolute;
   inset: 0;
   z-index: -1;
   object-fit: cover;
+  object-position: 58% 26%;
   width: 100%;
   height: 100%;
-  opacity: 0.42;
+}
+/* The scrim. Heaviest on the left, where the headline sits, easing off to the
+   right so the climber and the van stay visible. Measured, not guessed — the
+   hero text is checked against the rendered pixels, not the stylesheet. */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(100deg,
+    rgba(15, 58, 38, 0.95) 0%,
+    rgba(15, 58, 38, 0.88) 34%,
+    rgba(15, 58, 38, 0.58) 64%,
+    rgba(15, 58, 38, 0.38) 100%);
+}
+/* Stacked on a phone the type runs the full width, so the scrim runs top-down
+   instead and lets the photograph through underneath the buttons. */
+@media (max-width: 900px) {
+  .hero::after {
+    background: linear-gradient(178deg,
+      rgba(15, 58, 38, 0.78) 0%,
+      rgba(15, 58, 38, 0.68) 55%,
+      rgba(15, 58, 38, 0.42) 100%);
+  }
+  /* Panned left so the climber and the branded shirt are what fills a narrow
+     screen, rather than a slice of tree trunk. */
+  .hero__media { object-position: 38% 26%; }
 }
 .hero__inner {
   padding-block: clamp(3.5rem, 9vw, 7rem);
