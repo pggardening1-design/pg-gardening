@@ -306,6 +306,34 @@ strong { font-weight: 700; }
 
 .btn-row { display: flex; flex-wrap: wrap; gap: var(--sp-3); }
 
+/* Light surfaces sitting inside dark ones ------------------------------------
+   A white card, a notice or a light button inside a dark section or the footer
+   is its own light surface — but it still inherits the dark context's
+   light-on-dark text colours, and those rules out-specify the plain element
+   ones. Left alone it prints white on white: card headings vanish outright,
+   tick lists with them, and the footer's white button comes out blank.
+   Each block below puts the light-background palette back. */
+.section--dark .card,
+.section--dark .notice { color: var(--text); }
+
+.section--dark .card h2, .section--dark .card h3, .section--dark .card h4,
+.section--dark .notice h2, .section--dark .notice h3, .section--dark .notice h4 {
+  color: var(--brand-strong);
+}
+.section--dark .card p, .section--dark .card .lede,
+.section--dark .notice p, .section--dark .notice .lede { color: var(--ink-700); }
+
+.section--dark .card a, .section--dark .notice a { color: var(--green-800); }
+.section--dark .card .eyebrow, .section--dark .notice .eyebrow { color: var(--green-800); }
+.section--dark .card .eyebrow::before,
+.section--dark .notice .eyebrow::before { background: var(--accent); }
+
+/* The footer's link colour is meant for links. A button brings its own
+   background, so it has to bring its own text colour with it. */
+.site-footer .btn--light, .site-footer .btn--light:hover { color: var(--green-900); }
+.site-footer .btn--primary, .site-footer .btn--primary:hover,
+.site-footer .btn--outline-light, .site-footer .btn--outline-light:hover { color: var(--white); }
+
 /* --------------------------------------------------------------------------
    5. Header / navigation
    -------------------------------------------------------------------------- */
@@ -965,7 +993,7 @@ a.card:hover .card__more svg { transform: translateX(3px); }
   padding: var(--sp-5) var(--sp-6);
   box-shadow: var(--shadow-sm);
 }
-.seal__mark { width: 104px; height: 104px; flex-shrink: 0; }
+.seal__mark { width: 128px; height: 128px; flex-shrink: 0; }
 .seal__text h3 { font-size: var(--step-1); margin-bottom: var(--sp-2); }
 .seal__text p { font-size: 0.95rem; color: var(--ink-700); margin: 0; }
 
@@ -998,7 +1026,9 @@ a.card:hover .card__more svg { transform: translateX(3px); }
 
 @media (max-width: 520px) {
   .seal { flex-direction: column; text-align: center; gap: var(--sp-4); }
-  .seal__mark { width: 88px; height: 88px; }
+  /* Not shrunk on phones. The badge carries type inside it, and scaling the
+     badge down scales the words down with it. It stacks above the wording
+     here, so there is room to leave it alone. */
 }
 
 /* --------------------------------------------------------------------------
@@ -1273,7 +1303,7 @@ th { background: var(--cream-200); font-weight: 700; color: var(--green-900); }
 .footer-brand .brand__strap {
   display: block;
   color: var(--bark-300);
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-weight: 600;
@@ -1346,7 +1376,10 @@ th { background: var(--cream-200); font-weight: 700; color: var(--green-900); }
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.callbar small { font-weight: 400; font-size: 0.68rem; opacity: 0.9; }
+/* The number itself, on the one control that matters most on a phone. It was
+   10.9px at 90% opacity — legible, but not for the customer squinting at it
+   in a garden. Full opacity and up to about 12.5px. */
+.callbar small { font-weight: 400; font-size: 0.78rem; opacity: 1; }
 .callbar svg { margin-bottom: 1px; }
 
 /* --------------------------------------------------------------------------
