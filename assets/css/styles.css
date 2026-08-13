@@ -103,6 +103,13 @@
    -------------------------------------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; }
 
+/* The hidden attribute only carries `display: none` from the browser's own
+   stylesheet, so any class that sets display — .card is flex, .grid is grid —
+   silently beats it and the element stays on screen. Everything on this site
+   that is shown and hidden from JavaScript uses the attribute, so it is worth
+   settling once here rather than patching each component. */
+[hidden] { display: none !important; }
+
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
@@ -910,7 +917,6 @@ a.card:hover .card__more svg { transform: translateX(3px); }
   place-items: center;
   padding: var(--sp-5);
 }
-.lightbox[hidden] { display: none; }
 .lightbox__img {
   max-width: min(1100px, 94vw);
   max-height: 82vh;
@@ -1088,6 +1094,23 @@ input:focus, select:focus, textarea:focus { border-color: var(--green-700); }
 }
 
 .form-note { font-size: 0.85rem; color: var(--ink-500); }
+
+/* The customer's own words, carried from the review form to the thank-you page
+   so they can paste them onto Google without retyping. */
+.review-carry {
+  margin: var(--sp-4) 0;
+  padding: var(--sp-4) var(--sp-5);
+  background: var(--white);
+  border-left: 3px solid var(--green-600);
+  border-radius: var(--r-sm);
+  font-size: 0.98rem;
+  color: var(--ink-900);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-height: 14rem;
+  overflow-y: auto;
+}
+.btn.is-done { background: var(--green-100); border-color: var(--green-600); color: var(--green-900); }
 
 /* --------------------------------------------------------------------------
    12. Areas
@@ -1343,7 +1366,6 @@ th { background: var(--cream-200); font-weight: 700; color: var(--green-900); }
   box-shadow: var(--shadow-lg);
   padding: var(--sp-5);
 }
-.cookie-banner[hidden] { display: none; }
 .cookie-banner h2 { font-size: var(--step-1); margin-bottom: var(--sp-2); }
 .cookie-banner p { font-size: 0.92rem; margin-bottom: var(--sp-4); color: var(--ink-700); }
 .cookie-banner .btn-row .btn { flex: 1 1 140px; font-size: 0.95rem; padding: 0.7em 1em; }

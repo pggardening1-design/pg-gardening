@@ -13,10 +13,11 @@
     }
   ],
   "google": {
-    "reviewsUrl": "",
+    "reviewsUrl": "https://share.google/0Dz6d7YiSpCXQejIA",
     "writeUrl": "",
-    "mapsUrl": "",
-    "placeId": ""
+    "mapsUrl": "https://share.google/0Dz6d7YiSpCXQejIA",
+    "placeId": "",
+    "_note": "reviewsUrl and mapsUrl are the share link the owner supplied. writeUrl is the one-tap short link from the Business Profile dashboard (Ask for reviews) — it is the one that actually earns reviews and is still needed."
   },
   "ga4Id": "",
   "directories": [

@@ -21,6 +21,9 @@
 <link rel="stylesheet" href="/assets/css/styles.css">
 <script src="/assets/js/config.js"></script>
 <script src="/assets/js/site.js" defer></script>
+<script src="/assets/js/reviews-data.js"></script>
+<script src="/assets/js/review-followup.js" defer></script>
+<script src="/assets/js/reviews.js" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -48,7 +51,30 @@
 
 <section class="section section--white">
 <div class="wrap wrap--narrow" style="text-align:center;padding-block:2rem">
-<div class="card" style="align-items:center;text-align:center">
+
+<div class="card" data-review-thanks hidden style="align-items:center;text-align:center">
+<div class="card__icon" style="width:72px;height:72px;margin-inline:auto">
+<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+</div>
+<h1>Thank you &mdash; that is with us</h1>
+<p class="lede">We read every one. It goes on the reviews page as you wrote it, once we have seen it.</p>
+<div class="notice notice--green mt-5" style="text-align:left">
+<h3>Would you put the same words on Google?</h3>
+<p>It is the review that does the most good, because it sits somewhere we cannot touch it &mdash; and it is the one the next person looking for a tree surgeon actually reads. Yours is below, ready to paste.</p>
+<blockquote class="review-carry" data-review-copy></blockquote>
+<div class="btn-row">
+<button class="btn btn--ghost" type="button" data-copy-review>Copy my review</button>
+<a class="btn btn--primary" data-google-link="write" href="#">Open Google and post it</a>
+</div>
+<p class="form-note mb-0">Entirely up to you, and it makes no difference to your review here either way.</p>
+</div>
+<div class="btn-row mt-5" style="justify-content:center">
+<a class="btn btn--ghost" href="/reviews.html">Back to the reviews page</a>
+<a class="btn btn--ghost" href="/">Home</a>
+</div>
+</div>
+
+<div class="card" data-quote-thanks style="align-items:center;text-align:center">
 <div class="card__icon" style="width:72px;height:72px;margin-inline:auto">
 <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
 </div>
@@ -61,7 +87,7 @@
 <a class="btn btn--ghost" href="/">Back to the home page</a>
 </div>
 </div>
-<div class="notice notice--green mt-6" style="text-align:left">
+<div class="notice notice--green mt-6" data-quote-thanks style="text-align:left">
 <h3>What happens next</h3>
 <ol style="margin-bottom:0;padding-left:1.2em">
 <li>We read it and work out whether we need any more detail.</li>
