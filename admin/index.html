@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Admin — PG Gardening &amp; Tree Surgeon</title>
+<link rel="icon" href="/assets/img/brand/favicon.png" type="image/png" sizes="any">
+<style>
+  :root { color-scheme: light; }
+  body { margin: 0; font-family: "Segoe UI", Roboto, -apple-system, Helvetica, Arial, sans-serif; }
+  .boot {
+    max-width: 34rem;
+    margin: 12vh auto;
+    padding: 2rem;
+    color: #16241d;
+    line-height: 1.6;
+  }
+  .boot h1 { font-family: Georgia, serif; color: #0f3a26; margin: 0 0 .75rem; }
+  .boot p { color: #4a5a52; }
+  .boot code { background: #eaf5ee; padding: .1em .4em; border-radius: 4px; }
+  .boot a { color: #1b6f42; }
+</style>
+</head>
+<body>
+
+<!-- Shown only until the CMS takes over the page -->
+<div class="boot" id="boot">
+  <h1>Loading the admin panel…</h1>
+  <p>If this message stays put, the panel could not start. That is nearly always
+     one of two things, both fixed in the Netlify dashboard and both one-off:</p>
+  <p><strong>1.</strong> Netlify Identity is not enabled &mdash;
+     Site configuration → Identity → Enable.<br>
+     <strong>2.</strong> Git Gateway is not enabled &mdash;
+     Identity → Services → Git Gateway → Enable.</p>
+  <p>See <code>ADMIN.md</code> in the repository for the full walkthrough, or
+     <a href="/">go back to the website</a>.</p>
+</div>
+
+<!-- Netlify Identity: handles who is allowed in -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<!-- Decap CMS: the panel itself -->
+<script src="https://unpkg.com/decap-cms@^3.1.10/dist/decap-cms.js"></script>
+
+<script>
+  // Once the CMS mounts it replaces the page, so this only ever shows on failure.
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      var boot = document.getElementById('boot');
+      if (boot && document.querySelector('#nc-root, [class*="AppMainContainer"]')) boot.remove();
+    }, 1200);
+  });
+
+  // Send anyone who logs in from the public site straight here
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on('init', function (user) {
+      if (!user) {
+        window.netlifyIdentity.on('login', function () {
+          document.location.href = '/admin/';
+        });
+      }
+    });
+  }
+</script>
+</body>
+</html>

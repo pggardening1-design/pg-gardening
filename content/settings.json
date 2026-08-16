@@ -1,0 +1,114 @@
+{
+  "_comment": "Edited through the admin panel at /admin. Anything with enabled=false is simply not rendered on the site — no dead links, no empty sections.",
+  "facebook": [
+    {
+      "label": "PG Gardening on Facebook",
+      "url": "https://www.facebook.com/share/1E5XWc1L7V/",
+      "enabled": true
+    },
+    {
+      "label": "Our second Facebook page",
+      "url": "https://www.facebook.com/share/1b42MzoTax/",
+      "enabled": true
+    }
+  ],
+  "google": {
+    "reviewsUrl": "https://share.google/0Dz6d7YiSpCXQejIA",
+    "writeUrl": "",
+    "mapsUrl": "https://share.google/0Dz6d7YiSpCXQejIA",
+    "placeId": "",
+    "_note": "reviewsUrl and mapsUrl are the share link the owner supplied. writeUrl is the one-tap short link from the Business Profile dashboard (Ask for reviews) — it is the one that actually earns reviews and is still needed."
+  },
+  "ga4Id": "",
+  "directories": [
+    {
+      "name": "Bark",
+      "url": "",
+      "enabled": false,
+      "note": "Lead site. Paid per lead."
+    },
+    {
+      "name": "MyBuilder",
+      "url": "",
+      "enabled": false,
+      "note": "Trade listings and reviews."
+    },
+    {
+      "name": "Checkatrade",
+      "url": "",
+      "enabled": false,
+      "note": "Vetted trade directory."
+    },
+    {
+      "name": "TrustATrader",
+      "url": "",
+      "enabled": false,
+      "note": "Vetted trade directory."
+    },
+    {
+      "name": "Rated People",
+      "url": "",
+      "enabled": false,
+      "note": "Lead site."
+    },
+    {
+      "name": "Which? Trusted Traders",
+      "url": "",
+      "enabled": false,
+      "note": "Endorsement scheme."
+    },
+    {
+      "name": "TrustMark",
+      "url": "",
+      "enabled": false,
+      "note": "Government-endorsed quality scheme."
+    },
+    {
+      "name": "Trustpilot",
+      "url": "",
+      "enabled": false,
+      "note": "Review platform."
+    },
+    {
+      "name": "Yell",
+      "url": "",
+      "enabled": false,
+      "note": "Yellow Pages online."
+    },
+    {
+      "name": "FreeIndex",
+      "url": "",
+      "enabled": false,
+      "note": "Free UK business directory."
+    },
+    {
+      "name": "Nextdoor",
+      "url": "",
+      "enabled": false,
+      "note": "Neighbourhood app — strong for local trades."
+    },
+    {
+      "name": "Local Heroes",
+      "url": "",
+      "enabled": false,
+      "note": "Backed by British Gas."
+    },
+    {
+      "name": "Arboricultural Association",
+      "url": "",
+      "enabled": false,
+      "note": "Trade body. Only if genuinely a member."
+    }
+  ],
+  "_contact_note": "Written by tools/setup.mjs, not by the admin panel. The phone numbers are printed into every page's HTML as tel: links, which the panel cannot rewrite, so they are deliberately not editable there.",
+  "phone1": {
+    "number": "07443 356 651",
+    "label": ""
+  },
+  "phone2": {
+    "number": "07411 648 265",
+    "label": ""
+  },
+  "email": "",
+  "domain": ""
+}

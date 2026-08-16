@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="PG Gardening and Tree Surgeon">
+<circle cx="32" cy="32" r="31" fill="#14532d"/>
+<circle cx="32" cy="23" r="11.5" fill="#faf6ee"/>
+<circle cx="21" cy="30.5" r="8.5" fill="#faf6ee"/>
+<circle cx="43" cy="30.5" r="8.5" fill="#faf6ee"/>
+<path d="M30 33h4v18h-4z" fill="#c2a184"/>
+<path d="M32 41l6-5M32 45l-6-5" stroke="#c2a184" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+<path d="M14 51h36" stroke="#227c44" stroke-width="3" stroke-linecap="round"/>
+</svg>
